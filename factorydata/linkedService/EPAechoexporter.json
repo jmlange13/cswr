@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://echo.epa.gov/files/echodownloads",
+			"url": "https://echo.epa.gov/files/echodownloads/echo_exporter.zip",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
