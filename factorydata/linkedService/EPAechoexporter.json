@@ -5,7 +5,7 @@
 		"type": "HttpServer",
 		"typeProperties": {
 			"url": "https://echo.epa.gov/files/echodownloads/echo_exporter.zip",
-			"enableServerCertificateValidation": true,
+			"enableServerCertificateValidation": false,
 			"authenticationType": "Anonymous"
 		}
 	}
