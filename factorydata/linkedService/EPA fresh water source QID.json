@@ -1,0 +1,12 @@
+{
+	"name": "EPA fresh water source QID",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://ofmpub.epa.gov/echo/sdw_rest_services.get_systems?output=JSON&p_st=GA&qcolumns=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
