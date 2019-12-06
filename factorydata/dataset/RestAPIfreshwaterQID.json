@@ -1,0 +1,12 @@
+{
+	"name": "RestAPIfreshwaterQID",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "EPA fresh water source QID",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
