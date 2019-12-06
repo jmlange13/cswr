@@ -1,0 +1,16 @@
+{
+	"name": "echo_exporter",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "EPAechoexporter",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		}
+	}
+}
