@@ -9,185 +9,633 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "Year",
+				"name": "REGISTRY_ID",
 				"type": "varchar"
 			},
 			{
-				"name": "NPDES Permit Number",
+				"name": "FAC_NAME",
 				"type": "varchar"
 			},
 			{
-				"name": "Facility Name",
+				"name": "FAC_STREET",
 				"type": "varchar"
 			},
 			{
-				"name": "FRS ID",
+				"name": "FAC_CITY",
 				"type": "varchar"
 			},
 			{
-				"name": "TRI Facility ID(s)",
+				"name": "FAC_STATE",
+				"type": "char"
+			},
+			{
+				"name": "FAC_ZIP",
 				"type": "varchar"
 			},
 			{
-				"name": "CWNS ID(s)",
+				"name": "FAC_COUNTRY",
 				"type": "varchar"
 			},
 			{
-				"name": "Facility Type Indicator",
+				"name": "FAC_FIPS_CODE",
 				"type": "varchar"
 			},
 			{
-				"name": "Permit Type",
+				"name": "FAC_EPA_REGION",
+				"type": "char"
+			},
+			{
+				"name": "FAC_INDIAN_CNTRY_FLG",
 				"type": "varchar"
 			},
 			{
-				"name": "Permit Effective Date",
-				"type": "date"
-			},
-			{
-				"name": "Permit Expiration Date",
-				"type": "date"
-			},
-			{
-				"name": "Major/Non-Major Status",
+				"name": "FAC_FEDERAL_FLG",
 				"type": "varchar"
 			},
 			{
-				"name": "SIC Code",
+				"name": "FAC_US_MEX_BORDER_FLG",
+				"type": "char"
+			},
+			{
+				"name": "FAC_CHESAPEAKE_BAY_FLG",
+				"type": "char"
+			},
+			{
+				"name": "FAC_NAA_FLAG",
+				"type": "char"
+			},
+			{
+				"name": "FAC_LAT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 12
+			},
+			{
+				"name": "FAC_LONG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 12
+			},
+			{
+				"name": "FAC_MAP_ICON",
 				"type": "varchar"
 			},
 			{
-				"name": "NAICS Code",
+				"name": "FAC_COLLECTION_METHOD",
 				"type": "varchar"
 			},
 			{
-				"name": "Street Address",
+				"name": "FAC_REFERENCE_POINT",
 				"type": "varchar"
 			},
 			{
-				"name": "City",
-				"type": "varchar"
-			},
-			{
-				"name": "State",
-				"type": "varchar"
-			},
-			{
-				"name": "Zip Code",
-				"type": "varchar"
-			},
-			{
-				"name": "County",
-				"type": "varchar"
-			},
-			{
-				"name": "EPA Region",
-				"type": "varchar"
-			},
-			{
-				"name": "Congressional District",
-				"type": "varchar"
-			},
-			{
-				"name": "Facility Latitude",
-				"type": "varchar"
-			},
-			{
-				"name": "Facility Longitute",
-				"type": "varchar"
-			},
-			{
-				"name": "HUC 12 Code",
-				"type": "varchar"
-			},
-			{
-				"name": "Watershed Name",
-				"type": "varchar"
-			},
-			{
-				"name": "Water Body Name",
-				"type": "varchar"
-			},
-			{
-				"name": "Reach Code",
-				"type": "varchar"
-			},
-			{
-				"name": "Listed for Impairment",
-				"type": "varchar"
-			},
-			{
-				"name": "Impairment Class",
-				"type": "varchar"
-			},
-			{
-				"name": "Number of CSO Outfalls",
+				"name": "FAC_ACCURACY_METERS",
 				"type": "decimal",
 				"precision": 22,
 				"scale": 0
 			},
 			{
-				"name": "Total Facility Design Flow (MGD)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 3
-			},
-			{
-				"name": "Actual Average Facility Flow (MGD)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 3
-			},
-			{
-				"name": "Total Facility Load (kg/yr)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 8
-			},
-			{
-				"name": "Facility Load Over Limit (Option 1) (kg/yr)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 8
-			},
-			{
-				"name": "Facility Load Over Limit (Option 2) (kg/yr)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 8
-			},
-			{
-				"name": "Max Allowable Load (kg/yr)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 8
-			},
-			{
-				"name": "Total Facility Flow (MGal/yr)",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 8
-			},
-			{
-				"name": "Facility Info Only",
+				"name": "FAC_DERIVED_TRIBES",
 				"type": "varchar"
 			},
 			{
-				"name": "Has Permit Limits",
+				"name": "FAC_DERIVED_HUC",
 				"type": "varchar"
 			},
 			{
-				"name": "Has Loadings Data",
+				"name": "FAC_DERIVED_WBD",
 				"type": "varchar"
 			},
 			{
-				"name": "Contains Potential Outliers?",
+				"name": "FAC_DERIVED_STCTY_FIPS",
 				"type": "varchar"
+			},
+			{
+				"name": "FAC_DERIVED_ZIP",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_DERIVED_CD113",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_DERIVED_CB2010",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_PERCENT_MINORITY",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_POP_DEN",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_MAJOR_FLAG",
+				"type": "char"
+			},
+			{
+				"name": "FAC_ACTIVE_FLAG",
+				"type": "char"
+			},
+			{
+				"name": "FAC_MYRTK_UNIVERSE",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_INSPECTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_DATE_LAST_INSPECTION",
+				"type": "date"
+			},
+			{
+				"name": "FAC_DAYS_LAST_INSPECTION",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_INFORMAL_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_DATE_LAST_INFORMAL_ACTION",
+				"type": "date"
+			},
+			{
+				"name": "FAC_FORMAL_ACTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_DATE_LAST_FORMAL_ACTION",
+				"type": "date"
+			},
+			{
+				"name": "FAC_TOTAL_PENALTIES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_PENALTY_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_DATE_LAST_PENALTY",
+				"type": "date"
+			},
+			{
+				"name": "FAC_LAST_PENALTY_AMT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_QTRS_WITH_NC",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_PROGRAMS_WITH_SNC",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FAC_COMPLIANCE_STATUS",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_SNC_FLG",
+				"type": "char"
+			},
+			{
+				"name": "FAC_3YR_COMPLIANCE_HISTORY",
+				"type": "varchar"
+			},
+			{
+				"name": "AIR_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "NPDES_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWIS_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "TRI_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "GHG_FLAG",
+				"type": "char"
+			},
+			{
+				"name": "AIR_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "CAA_PERMIT_TYPES",
+				"type": "varchar"
+			},
+			{
+				"name": "CAA_NAICS",
+				"type": "varchar"
+			},
+			{
+				"name": "CAA_SICS",
+				"type": "varchar"
+			},
+			{
+				"name": "CAA_EVALUATION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_DAYS_LAST_EVALUATION",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_INFORMAL_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_FORMAL_ACTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_DATE_LAST_FORMAL_ACTION",
+				"type": "date"
+			},
+			{
+				"name": "CAA_PENALTIES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_LAST_PENALTY_DATE",
+				"type": "date"
+			},
+			{
+				"name": "CAA_LAST_PENALTY_AMT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_QTRS_IN_NC",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CAA_COMPLIANCE_STATUS",
+				"type": "varchar"
+			},
+			{
+				"name": "CAA_HPV_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "CAA_3YR_COMPL_QTRS_HISTORY",
+				"type": "varchar"
+			},
+			{
+				"name": "NPDES_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_PERMIT_TYPES",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_COMPLIANCE_TRACKING",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_NAICS",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_SICS",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_INSPECTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_DAYS_LAST_INSPECTION",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_INFORMAL_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_FORMAL_ACTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_DATE_LAST_FORMAL_ACTION",
+				"type": "date"
+			},
+			{
+				"name": "CWA_PENALTIES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_LAST_PENALTY_DATE",
+				"type": "date"
+			},
+			{
+				"name": "CWA_LAST_PENALTY_AMT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_QTRS_WITH_NC",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_COMPLIANCE_STATUS",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_SNC_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_13QTRS_COMPL_HISTORY",
+				"type": "varchar"
+			},
+			{
+				"name": "CWA_13QTRS_EFFLNT_EXCEEDANCES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CWA_3_YR_QNCR_CODES",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_PERMIT_TYPES",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_NAICS",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_INSPECTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_DAYS_LAST_EVALUATION",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_INFORMAL_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_FORMAL_ACTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_DATE_LAST_FORMAL_ACTION",
+				"type": "date"
+			},
+			{
+				"name": "RCRA_PENALTIES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_LAST_PENALTY_DATE",
+				"type": "date"
+			},
+			{
+				"name": "RCRA_LAST_PENALTY_AMT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_QTRS_WITH_NC",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RCRA_COMPLIANCE_STATUS",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_SNC_FLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "RCRA_3YR_COMPL_QTRS_HISTORY",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWA_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWA_SYSTEM_TYPES",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWA_INFORMAL_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SDWA_FORMAL_ACTION_COUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SDWA_COMPLIANCE_STATUS",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWA_SNC_FLAG",
+				"type": "char"
+			},
+			{
+				"name": "TRI_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "TRI_RELEASES_TRANSFERS",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "TRI_ON_SITE_RELEASES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "TRI_OFF_SITE_TRANSFERS",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "TRI_REPORTER_IN_PAST",
+				"type": "char"
+			},
+			{
+				"name": "FEC_CASE_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "FEC_NUMBER_OF_CASES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FEC_LAST_CASE_DATE",
+				"type": "date"
+			},
+			{
+				"name": "FEC_TOTAL_PENALTIES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "GHG_IDS",
+				"type": "varchar"
+			},
+			{
+				"name": "GHG_CO2_RELEASES",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "DFR_URL",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_SIC_CODES",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_NAICS_CODES",
+				"type": "varchar"
+			},
+			{
+				"name": "FAC_DATE_LAST_INSPECTION_EPA",
+				"type": "date"
+			},
+			{
+				"name": "FAC_DATE_LAST_INSPECTION_STATE",
+				"type": "date"
+			},
+			{
+				"name": "FAC_DATE_LAST_FORMAL_ACT_EPA",
+				"type": "date"
+			},
+			{
+				"name": "FAC_DATE_LAST_FORMAL_ACT_ST",
+				"type": "date"
+			},
+			{
+				"name": "FAC_DATE_LAST_INFORMAL_ACT_EPA",
+				"type": "date"
+			},
+			{
+				"name": "FAC_DATE_LAST_INFORMAL_ACT_ST",
+				"type": "date"
+			},
+			{
+				"name": "FAC_FEDERAL_AGENCY",
+				"type": "varchar"
+			},
+			{
+				"name": "TRI_REPORTER",
+				"type": "char"
+			},
+			{
+				"name": "FAC_IMP_WATER_FLG",
+				"type": "char"
+			},
+			{
+				"name": "EJSCREEN_FLAG_US",
+				"type": "char"
 			}
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Wastewater"
+			"table": "Facility"
 		}
 	}
 }
