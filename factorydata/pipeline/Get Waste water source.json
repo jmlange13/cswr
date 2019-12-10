@@ -245,6 +245,10 @@
 								}
 							},
 							{
+								"source": {
+									"name": "Facility Longitude",
+									"type": "String"
+								},
 								"sink": {
 									"name": "Facility Longitute",
 									"type": "Decimal"
