@@ -355,7 +355,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "FreshWater"
+			"table": "Wastewater"
 		}
 	}
 }
