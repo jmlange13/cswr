@@ -1,15 +1,17 @@
 {
-	"name": "echo_exporter",
+	"name": "Facility",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "EPAechoexporter",
+			"referenceName": "CSWRstorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "ECHO_EXPORTER.csv",
+				"container": "facility-sources"
 			}
 		}
 	}
