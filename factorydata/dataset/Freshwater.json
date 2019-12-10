@@ -1,0 +1,308 @@
+{
+	"name": "Freshwater",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CSWRstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "AL_fresh_20191209.csv",
+				"container": "freshwater-sources"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "PWSName",
+				"type": "String"
+			},
+			{
+				"name": "PWSId",
+				"type": "String"
+			},
+			{
+				"name": "CitiesServed",
+				"type": "String"
+			},
+			{
+				"name": "StateCode",
+				"type": "String"
+			},
+			{
+				"name": "ZipCodesServed",
+				"type": "String"
+			},
+			{
+				"name": "CountiesServed",
+				"type": "String"
+			},
+			{
+				"name": "EPARegion",
+				"type": "String"
+			},
+			{
+				"name": "IndianCountry",
+				"type": "String"
+			},
+			{
+				"name": "PWSTypeCode",
+				"type": "String"
+			},
+			{
+				"name": "PWSTypeDesc",
+				"type": "String"
+			},
+			{
+				"name": "PrimarySourceCode",
+				"type": "String"
+			},
+			{
+				"name": "PrimarySourceDesc",
+				"type": "String"
+			},
+			{
+				"name": "PopulationServedCount",
+				"type": "String"
+			},
+			{
+				"name": "PWSActivityCode",
+				"type": "String"
+			},
+			{
+				"name": "PWSActivityDesc",
+				"type": "String"
+			},
+			{
+				"name": "OwnerTypeCode",
+				"type": "String"
+			},
+			{
+				"name": "OwnerDesc",
+				"type": "String"
+			},
+			{
+				"name": "QtrsWithVio",
+				"type": "String"
+			},
+			{
+				"name": "QtrsWithSNC",
+				"type": "String"
+			},
+			{
+				"name": "SeriousViolator",
+				"type": "String"
+			},
+			{
+				"name": "HealthFlag",
+				"type": "String"
+			},
+			{
+				"name": "MrFlag",
+				"type": "String"
+			},
+			{
+				"name": "PnFlag",
+				"type": "String"
+			},
+			{
+				"name": "OtherFlag",
+				"type": "String"
+			},
+			{
+				"name": "NewVioFlg",
+				"type": "String"
+			},
+			{
+				"name": "RulesVio3yr",
+				"type": "String"
+			},
+			{
+				"name": "RulesVio",
+				"type": "String"
+			},
+			{
+				"name": "Viopaccr",
+				"type": "String"
+			},
+			{
+				"name": "Vioremain",
+				"type": "String"
+			},
+			{
+				"name": "Viofeanot",
+				"type": "String"
+			},
+			{
+				"name": "Viortcfea",
+				"type": "String"
+			},
+			{
+				"name": "Viortcnofea",
+				"type": "String"
+			},
+			{
+				"name": "Ifea",
+				"type": "String"
+			},
+			{
+				"name": "Feas",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastIea",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastIeaEPA",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastIeaSt",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastFea",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastFeaEPA",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastFeaSt",
+				"type": "String"
+			},
+			{
+				"name": "SDWAContaminantsInViol3yr",
+				"type": "String"
+			},
+			{
+				"name": "SDWAContaminantsInCurViol",
+				"type": "String"
+			},
+			{
+				"name": "PbAle",
+				"type": "String"
+			},
+			{
+				"name": "CuAle",
+				"type": "String"
+			},
+			{
+				"name": "Rc350Viol",
+				"type": "String"
+			},
+			{
+				"name": "DfrUrl",
+				"type": "String"
+			},
+			{
+				"name": "FIPSCodes",
+				"type": "String"
+			},
+			{
+				"name": "SNC",
+				"type": "String"
+			},
+			{
+				"name": "GwSwCode",
+				"type": "String"
+			},
+			{
+				"name": "SDWA3yrComplQtrsHistory",
+				"type": "String"
+			},
+			{
+				"name": "SDWAContaminants",
+				"type": "String"
+			},
+			{
+				"name": "PbViol",
+				"type": "String"
+			},
+			{
+				"name": "CuViol",
+				"type": "String"
+			},
+			{
+				"name": "LeadAndCopperViol",
+				"type": "String"
+			},
+			{
+				"name": "TRIbalFlag",
+				"type": "String"
+			},
+			{
+				"name": "FeaFlag",
+				"type": "String"
+			},
+			{
+				"name": "IeaFlag",
+				"type": "String"
+			},
+			{
+				"name": "SNCFlag",
+				"type": "String"
+			},
+			{
+				"name": "CurrVioFlag",
+				"type": "String"
+			},
+			{
+				"name": "VioFlag",
+				"type": "String"
+			},
+			{
+				"name": "Insp5yrFlag",
+				"type": "String"
+			},
+			{
+				"name": "Sansurvey5yr",
+				"type": "String"
+			},
+			{
+				"name": "SignificantDeficiencyCount",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastVisit",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastVisitEPA",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastVisitState",
+				"type": "String"
+			},
+			{
+				"name": "SDWDateLastVisitLocal",
+				"type": "String"
+			},
+			{
+				"name": "SiteVisits5yrAll",
+				"type": "String"
+			},
+			{
+				"name": "SiteVisits5yrInspections",
+				"type": "String"
+			},
+			{
+				"name": "SiteVisits5yrOther",
+				"type": "String"
+			},
+			{
+				"name": "RegistryID",
+				"type": "String"
+			}
+		]
+	}
+}
