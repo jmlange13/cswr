@@ -1,0 +1,183 @@
+{
+	"name": "Wastewater",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CSWRstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "wastewater-sources"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": "NPDES Permit Number",
+				"type": "String"
+			},
+			{
+				"name": "Facility Name",
+				"type": "String"
+			},
+			{
+				"name": "FRS ID",
+				"type": "String"
+			},
+			{
+				"name": "TRI Facility ID(s)",
+				"type": "String"
+			},
+			{
+				"name": "CWNS ID(s)",
+				"type": "String"
+			},
+			{
+				"name": "Facility Type Indicator",
+				"type": "String"
+			},
+			{
+				"name": "Permit Type",
+				"type": "String"
+			},
+			{
+				"name": "Permit Effective Date",
+				"type": "String"
+			},
+			{
+				"name": "Permit Expiration Date",
+				"type": "String"
+			},
+			{
+				"name": "Major/Non-Major Status",
+				"type": "String"
+			},
+			{
+				"name": "SIC Code",
+				"type": "String"
+			},
+			{
+				"name": "NAICS Code",
+				"type": "String"
+			},
+			{
+				"name": "Street Address",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": "ZIP Code",
+				"type": "String"
+			},
+			{
+				"name": "County",
+				"type": "String"
+			},
+			{
+				"name": "EPA Region",
+				"type": "String"
+			},
+			{
+				"name": "Congressional District",
+				"type": "String"
+			},
+			{
+				"name": "Facility Latitude",
+				"type": "String"
+			},
+			{
+				"name": "Facility Longitude",
+				"type": "String"
+			},
+			{
+				"name": "HUC 12 Code",
+				"type": "String"
+			},
+			{
+				"name": "Watershed Name",
+				"type": "String"
+			},
+			{
+				"name": "Water Body Name",
+				"type": "String"
+			},
+			{
+				"name": "Reach Code",
+				"type": "String"
+			},
+			{
+				"name": "Listed for Impairment",
+				"type": "String"
+			},
+			{
+				"name": "Impairment Class",
+				"type": "String"
+			},
+			{
+				"name": "Number of CSO Outfalls",
+				"type": "String"
+			},
+			{
+				"name": "Total Facility Design Flow (MGD)",
+				"type": "String"
+			},
+			{
+				"name": "Actual Average Facility Flow (MGD)",
+				"type": "String"
+			},
+			{
+				"name": "Total Facility Load (kg/yr)",
+				"type": "String"
+			},
+			{
+				"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+				"type": "String"
+			},
+			{
+				"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+				"type": "String"
+			},
+			{
+				"name": "Max Allowable Load (kg/yr)",
+				"type": "String"
+			},
+			{
+				"name": "Total Facility Flow (MGal/yr)",
+				"type": "String"
+			},
+			{
+				"name": "Facility Info Only",
+				"type": "String"
+			},
+			{
+				"name": "Has Permit Limits",
+				"type": "String"
+			},
+			{
+				"name": "Has Loadings Data",
+				"type": "String"
+			},
+			{
+				"name": "Contains Potential Outliers?",
+				"type": "String"
+			}
+		]
+	}
+}
