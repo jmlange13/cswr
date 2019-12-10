@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "AL_fresh_20191209.csv",
 				"container": "freshwater-sources"
 			},
 			"columnDelimiter": ",",
