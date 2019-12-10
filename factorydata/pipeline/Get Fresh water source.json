@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "CopyCSVtoDB",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,28 +16,746 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "RestSource",
-						"httpRequestTimeout": "00:01:40",
-						"requestInterval": "00.00:00:00.010",
-						"requestMethod": "GET"
-					},
-					"sink": {
-						"type": "BinarySink",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "PWSName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PWSNAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PWSId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PWSID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CitiesServed",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CITIESSERVED",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "StateCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STATECODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ZipCodesServed",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ZIPCODESSERVED",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CountiesServed",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COUNTIESSERVED",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EPARegion",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EPAREGION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IndianCountry",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INDIANCOUNTRY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PWSTypeCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PWSTYPECODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PWSTypeDesc",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PWSTYPEDESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PrimarySourceCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRIMARYSOURCECODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PrimarySourceDesc",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRIMARYSOURCEDESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PopulationServedCount",
+									"type": "String"
+								},
+								"sink": {
+									"name": "POPULATIONSERVEDCOUNT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "PWSActivityCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PWSACTIVITYCODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PWSActivityDesc",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PWSACTIVITYDESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerTypeCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OWNERTYPECODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OwnerDesc",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OWNERDESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "QtrsWithVio",
+									"type": "String"
+								},
+								"sink": {
+									"name": "QTRSWITHVIO",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "QtrsWithSNC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "QTRSWITHSNC",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SeriousViolator",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SERIOUSVIOLATOR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HealthFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HEALTHFLAG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MrFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MRFLAG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PnFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PNFLAG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OtherFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OTHERFLAG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NewVioFlg",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NEWVIOFLG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RulesVio3yr",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RULESVIO3YR",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "RulesVio",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RULESVIO",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Viopaccr",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VIOPACCR",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Vioremain",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VIOREMAIN",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Viofeanot",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VIOFEANOT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Viortcfea",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VIORTCFEA",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Viortcnofea",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VIORTCNOFEA",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Ifea",
+									"type": "String"
+								},
+								"sink": {
+									"name": "IFEA",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Feas",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FEAS",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastIea",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTIEA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastIeaEPA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTIEAEPA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastIeaSt",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTIEAST",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastFea",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTFEA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastFeaEPA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTFEAEPA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastFeaSt",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTFEAST",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWAContaminantsInViol3yr",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWACONTAMINANTSINVIOL3YR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWAContaminantsInCurViol",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWACONTAMINANTSINCURVIOL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PbAle",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PBALE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CuAle",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUALE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Rc350Viol",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RC350VIOL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "DfrUrl",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DFRURL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FIPSCodes",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FIPSCODES",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SNC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SNC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GwSwCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "GWSWCODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWA3yrComplQtrsHistory",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWA3YRCOMPLQTRSHISTORY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWAContaminants",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWACONTAMINANTS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PbViol",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PBVIOL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CuViol",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUVIOL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "LeadAndCopperViol",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LEADANDCOPPERVIOL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TRIbalFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TRIBALFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "FeaFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FEAFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IeaFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "IEAFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SNCFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SNCFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CurrVioFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CURRVIOFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "VioFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "VIOFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Insp5yrFlag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INSP5YRFLAG",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Sansurvey5yr",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SANSURVEY5YR",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SignificantDeficiencyCount",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SIGNIFICANTDEFICIENCYCOUNT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastVisit",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTVISIT",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastVisitEPA",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTVISITEPA",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastVisitState",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTVISITSTATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SDWDateLastVisitLocal",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SDWDATELASTVISITLOCAL",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SiteVisits5yrAll",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SITEVISITS5YRALL",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SiteVisits5yrInspections",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SITEVISITS5YRINSPECTIONS",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "SiteVisits5yrOther",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SITEVISITS5YROTHER",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "RegistryID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REGISTRYID",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "RestAPIfreshwaterQID",
+						"referenceName": "Freshwater",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "echo_exporter_output",
+						"referenceName": "CSWRdb",
 						"type": "DatasetReference"
 					}
 				]
