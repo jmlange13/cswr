@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "CSWR-process"
+		},
+		"CSWRdevdb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CSWRdevdb'"
+		},
+		"CSWRstorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CSWRstorage'"
+		},
+		"EPA fresh water source QID_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ofmpub.epa.gov/echo/sdw_rest_services.get_systems?output=JSON&p_st=GA&qcolumns=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17"
+		},
+		"EPAechoexporter_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://echo.epa.gov/files/echodownloads/echo_exporter.zip"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"CSWRdevdb_connectionString": {
+						"value": "[parameters('CSWRdevdb_connectionString')]"
+					},
+					"CSWRstorage_connectionString": {
+						"value": "[parameters('CSWRstorage_connectionString')]"
+					},
+					"EPA fresh water source QID_properties_typeProperties_url": {
+						"value": "[parameters('EPA fresh water source QID_properties_typeProperties_url')]"
+					},
+					"EPAechoexporter_properties_typeProperties_url": {
+						"value": "[parameters('EPAechoexporter_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

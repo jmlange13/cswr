@@ -1,0 +1,4312 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "CSWR-process"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Get Facility source')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Facility source",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"redirectIncompatibleRowSettings": {
+								"linkedServiceName": {
+									"referenceName": "CSWRstorage",
+									"type": "LinkedServiceReference"
+								},
+								"path": "df-logging"
+							},
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "REGISTRY_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGISTRY_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_STREET",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_STREET",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_CITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_CITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_STATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_STATE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_ZIP",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_ZIP",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_COUNTY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_COUNTY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_FIPS_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_FIPS_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_EPA_REGION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_EPA_REGION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_INDIAN_CNTRY_FLG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_INDIAN_CNTRY_FLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_FEDERAL_FLG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_FEDERAL_FLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_US_MEX_BORDER_FLG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_US_MEX_BORDER_FLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_CHESAPEAKE_BAY_FLG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_CHESAPEAKE_BAY_FLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_NAA_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_NAA_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_LAT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_LAT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_LONG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_LONG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_MAP_ICON",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_MAP_ICON",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_COLLECTION_METHOD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_COLLECTION_METHOD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_REFERENCE_POINT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_REFERENCE_POINT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_ACCURACY_METERS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_ACCURACY_METERS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_TRIBES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_TRIBES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_HUC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_HUC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_WBD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_WBD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_STCTY_FIPS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_STCTY_FIPS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_ZIP",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_ZIP",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_CD113",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_CD113",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DERIVED_CB2010",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DERIVED_CB2010",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_PERCENT_MINORITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_PERCENT_MINORITY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_POP_DEN",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_POP_DEN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_MAJOR_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_MAJOR_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_ACTIVE_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_ACTIVE_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_MYRTK_UNIVERSE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_MYRTK_UNIVERSE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_INSPECTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_INSPECTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_INSPECTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_INSPECTION",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DAYS_LAST_INSPECTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DAYS_LAST_INSPECTION",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_INFORMAL_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_INFORMAL_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_INFORMAL_ACTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_INFORMAL_ACTION",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_FORMAL_ACTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_FORMAL_ACTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_FORMAL_ACTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_FORMAL_ACTION",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_TOTAL_PENALTIES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_TOTAL_PENALTIES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_PENALTY_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_PENALTY_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_PENALTY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_PENALTY",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_LAST_PENALTY_AMT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_LAST_PENALTY_AMT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_QTRS_WITH_NC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_QTRS_WITH_NC",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_PROGRAMS_WITH_SNC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_PROGRAMS_WITH_SNC",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_COMPLIANCE_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_COMPLIANCE_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_SNC_FLG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_SNC_FLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_3YR_COMPLIANCE_HISTORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_3YR_COMPLIANCE_HISTORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AIR_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AIR_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NPDES_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NPDES_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWIS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWIS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GHG_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GHG_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AIR_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AIR_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_PERMIT_TYPES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_PERMIT_TYPES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_NAICS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_NAICS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_SICS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_SICS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_EVALUATION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_EVALUATION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_DAYS_LAST_EVALUATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_DAYS_LAST_EVALUATION",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_INFORMAL_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_INFORMAL_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_FORMAL_ACTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_FORMAL_ACTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_DATE_LAST_FORMAL_ACTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_DATE_LAST_FORMAL_ACTION",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_PENALTIES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_PENALTIES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_LAST_PENALTY_DATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_LAST_PENALTY_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_LAST_PENALTY_AMT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_LAST_PENALTY_AMT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_QTRS_WITH_NC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_QTRS_WITH_NC",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_COMPLIANCE_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_COMPLIANCE_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_HPV_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_HPV_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CAA_3YR_COMPL_QTRS_HISTORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAA_3YR_COMPL_QTRS_HISTORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NPDES_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NPDES_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_PERMIT_TYPES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_PERMIT_TYPES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_COMPLIANCE_TRACKING",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_COMPLIANCE_TRACKING",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_NAICS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_NAICS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_SICS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_SICS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_INSPECTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_INSPECTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_DAYS_LAST_INSPECTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_DAYS_LAST_INSPECTION",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_INFORMAL_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_INFORMAL_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_FORMAL_ACTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_FORMAL_ACTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_DATE_LAST_FORMAL_ACTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_DATE_LAST_FORMAL_ACTION",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_PENALTIES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_PENALTIES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_LAST_PENALTY_DATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_LAST_PENALTY_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_LAST_PENALTY_AMT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_LAST_PENALTY_AMT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_QTRS_WITH_NC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_QTRS_WITH_NC",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_COMPLIANCE_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_COMPLIANCE_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_SNC_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_SNC_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_13QTRS_COMPL_HISTORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_13QTRS_COMPL_HISTORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_13QTRS_EFFLNT_EXCEEDANCES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_13QTRS_EFFLNT_EXCEEDANCES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CWA_3_YR_QNCR_CODES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWA_3_YR_QNCR_CODES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_PERMIT_TYPES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_PERMIT_TYPES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_NAICS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_NAICS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_INSPECTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_INSPECTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_DAYS_LAST_EVALUATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_DAYS_LAST_EVALUATION",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_INFORMAL_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_INFORMAL_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_FORMAL_ACTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_FORMAL_ACTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_DATE_LAST_FORMAL_ACTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_DATE_LAST_FORMAL_ACTION",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_PENALTIES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_PENALTIES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_LAST_PENALTY_DATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_LAST_PENALTY_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_LAST_PENALTY_AMT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_LAST_PENALTY_AMT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_QTRS_WITH_NC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_QTRS_WITH_NC",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_COMPLIANCE_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_COMPLIANCE_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_SNC_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_SNC_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RCRA_3YR_COMPL_QTRS_HISTORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RCRA_3YR_COMPL_QTRS_HISTORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA_SYSTEM_TYPES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA_SYSTEM_TYPES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA_INFORMAL_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA_INFORMAL_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA_FORMAL_ACTION_COUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA_FORMAL_ACTION_COUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA_COMPLIANCE_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA_COMPLIANCE_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA_SNC_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA_SNC_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_RELEASES_TRANSFERS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_RELEASES_TRANSFERS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_ON_SITE_RELEASES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_ON_SITE_RELEASES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_OFF_SITE_TRANSFERS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_OFF_SITE_TRANSFERS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_REPORTER_IN_PAST",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_REPORTER_IN_PAST",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FEC_CASE_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FEC_CASE_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FEC_NUMBER_OF_CASES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FEC_NUMBER_OF_CASES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FEC_LAST_CASE_DATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FEC_LAST_CASE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FEC_TOTAL_PENALTIES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FEC_TOTAL_PENALTIES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GHG_IDS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GHG_IDS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GHG_CO2_RELEASES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GHG_CO2_RELEASES",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DFR_URL",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DFR_URL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_SIC_CODES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_SIC_CODES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_NAICS_CODES",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_NAICS_CODES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_INSPECTION_EPA",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_INSPECTION_EPA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_INSPECTION_STATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_INSPECTION_STATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_FORMAL_ACT_EPA",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_FORMAL_ACT_EPA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_FORMAL_ACT_ST",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_FORMAL_ACT_ST",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_INFORMAL_ACT_EPA",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_INFORMAL_ACT_EPA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_DATE_LAST_INFORMAL_ACT_ST",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_DATE_LAST_INFORMAL_ACT_ST",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_FEDERAL_AGENCY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_FEDERAL_AGENCY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI_REPORTER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI_REPORTER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAC_IMP_WATER_FLG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAC_IMP_WATER_FLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EJSCREEN_FLAG_US",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EJSCREEN_FLAG_US",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "Facility",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "CSWRdb",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Facility')]",
+				"[concat(variables('factoryId'), '/datasets/CSWRdb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Get Fresh water source')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CopyCSVtoDB",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"redirectIncompatibleRowSettings": {
+								"linkedServiceName": {
+									"referenceName": "CSWRstorage",
+									"type": "LinkedServiceReference"
+								},
+								"path": "df-logging"
+							},
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PWSName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PWSNAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PWSId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PWSID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CitiesServed",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CITIESSERVED",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "StateCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATECODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ZipCodesServed",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ZIPCODESSERVED",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CountiesServed",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COUNTIESSERVED",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EPARegion",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EPAREGION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IndianCountry",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INDIANCOUNTRY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PWSTypeCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PWSTYPECODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PWSTypeDesc",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PWSTYPEDESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PrimarySourceCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRIMARYSOURCECODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PrimarySourceDesc",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRIMARYSOURCEDESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PopulationServedCount",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POPULATIONSERVEDCOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PWSActivityCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PWSACTIVITYCODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PWSActivityDesc",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PWSACTIVITYDESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OwnerTypeCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OWNERTYPECODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OwnerDesc",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OWNERDESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "QtrsWithVio",
+											"type": "String"
+										},
+										"sink": {
+											"name": "QTRSWITHVIO",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QtrsWithSNC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "QTRSWITHSNC",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SeriousViolator",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SERIOUSVIOLATOR",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HealthFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HEALTHFLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MrFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRFLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PnFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PNFLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OTHERFLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NewVioFlg",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NEWVIOFLG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RulesVio3yr",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RULESVIO3YR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RulesVio",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RULESVIO",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Viopaccr",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VIOPACCR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Vioremain",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VIOREMAIN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Viofeanot",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VIOFEANOT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Viortcfea",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VIORTCFEA",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Viortcnofea",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VIORTCNOFEA",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Ifea",
+											"type": "String"
+										},
+										"sink": {
+											"name": "IFEA",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Feas",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FEAS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastIea",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTIEA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastIeaEPA",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTIEAEPA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastIeaSt",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTIEAST",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastFea",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTFEA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastFeaEPA",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTFEAEPA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastFeaSt",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTFEAST",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWAContaminantsInViol3yr",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWACONTAMINANTSINVIOL3YR",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWAContaminantsInCurViol",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWACONTAMINANTSINCURVIOL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PbAle",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PBALE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CuAle",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CUALE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Rc350Viol",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RC350VIOL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DfrUrl",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DFRURL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FIPSCodes",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FIPSCODES",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SNC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SNC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GwSwCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GWSWCODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWA3yrComplQtrsHistory",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWA3YRCOMPLQTRSHISTORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWAContaminants",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWACONTAMINANTS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PbViol",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PBVIOL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CuViol",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CUVIOL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LeadAndCopperViol",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LEADANDCOPPERVIOL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TRIbalFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRIBALFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FeaFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FEAFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "IeaFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "IEAFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SNCFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SNCFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CurrVioFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CURRVIOFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VioFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VIOFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Insp5yrFlag",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INSP5YRFLAG",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Sansurvey5yr",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SANSURVEY5YR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SignificantDeficiencyCount",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SIGNIFICANTDEFICIENCYCOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastVisit",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTVISIT",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastVisitEPA",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTVISITEPA",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastVisitState",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTVISITSTATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SDWDateLastVisitLocal",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SDWDATELASTVISITLOCAL",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SiteVisits5yrAll",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SITEVISITS5YRALL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SiteVisits5yrInspections",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SITEVISITS5YRINSPECTIONS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SiteVisits5yrOther",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SITEVISITS5YROTHER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RegistryID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGISTRYID",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "Freshwater",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "CSWRdb",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Freshwater')]",
+				"[concat(variables('factoryId'), '/datasets/CSWRdb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Get Waste water source')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CopyCSVtoDB",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"redirectIncompatibleRowSettings": {
+								"linkedServiceName": {
+									"referenceName": "CSWRstorage",
+									"type": "LinkedServiceReference"
+								},
+								"path": "df-logging"
+							},
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Year",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Year",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NPDES Permit Number",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NPDES Permit Number",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FRS ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FRS ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TRI Facility ID(s)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRI Facility ID(s)",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CWNS ID(s)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CWNS ID(s)",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Type Indicator",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Type Indicator",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Permit Type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Permit Type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Permit Effective Date",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Permit Effective Date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Permit Expiration Date",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Permit Expiration Date",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Major/Non-Major Status",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Major/Non-Major Status",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SIC Code",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SIC Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NAICS Code",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAICS Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Street Address",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Street Address",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "City",
+											"type": "String"
+										},
+										"sink": {
+											"name": "City",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "State",
+											"type": "String"
+										},
+										"sink": {
+											"name": "State",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ZIP Code",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Zip Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "County",
+											"type": "String"
+										},
+										"sink": {
+											"name": "County",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EPA Region",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EPA Region",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Congressional District",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Congressional District",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Latitude",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Latitude",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Longitude",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Longitute",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HUC 12 Code",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HUC 12 Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Watershed Name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Watershed Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Water Body Name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Water Body Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Reach Code",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Reach Code",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Listed for Impairment",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Listed for Impairment",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Impairment Class",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Impairment Class",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of CSO Outfalls",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of CSO Outfalls",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Total Facility Design Flow (MGD)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Total Facility Design Flow (MGD)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Actual Average Facility Flow (MGD)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Actual Average Facility Flow (MGD)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Total Facility Load (kg/yr)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Total Facility Load (kg/yr)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Max Allowable Load (kg/yr)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Max Allowable Load (kg/yr)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Total Facility Flow (MGal/yr)",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Total Facility Flow (MGal/yr)",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "Facility Info Only",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Facility Info Only",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Has Permit Limits",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Has Permit Limits",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Has Loadings Data",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Has Loadings Data",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Contains Potential Outliers?",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Contains Potential Outliers?",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "Wastewater",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "CSWRdb",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Wastewater')]",
+				"[concat(variables('factoryId'), '/datasets/CSWRdb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CSWRdb')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CSWRdevdb",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "REGISTRY_ID",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_STREET",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_CITY",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_STATE",
+						"type": "char"
+					},
+					{
+						"name": "FAC_ZIP",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_COUNTRY",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_FIPS_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_EPA_REGION",
+						"type": "char"
+					},
+					{
+						"name": "FAC_INDIAN_CNTRY_FLG",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_FEDERAL_FLG",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_US_MEX_BORDER_FLG",
+						"type": "char"
+					},
+					{
+						"name": "FAC_CHESAPEAKE_BAY_FLG",
+						"type": "char"
+					},
+					{
+						"name": "FAC_NAA_FLAG",
+						"type": "char"
+					},
+					{
+						"name": "FAC_LAT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 12
+					},
+					{
+						"name": "FAC_LONG",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 12
+					},
+					{
+						"name": "FAC_MAP_ICON",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_COLLECTION_METHOD",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_REFERENCE_POINT",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_ACCURACY_METERS",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_DERIVED_TRIBES",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DERIVED_HUC",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DERIVED_WBD",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DERIVED_STCTY_FIPS",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DERIVED_ZIP",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DERIVED_CD113",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DERIVED_CB2010",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_PERCENT_MINORITY",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_POP_DEN",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_MAJOR_FLAG",
+						"type": "char"
+					},
+					{
+						"name": "FAC_ACTIVE_FLAG",
+						"type": "char"
+					},
+					{
+						"name": "FAC_MYRTK_UNIVERSE",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_INSPECTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_DATE_LAST_INSPECTION",
+						"type": "date"
+					},
+					{
+						"name": "FAC_DAYS_LAST_INSPECTION",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_INFORMAL_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_DATE_LAST_INFORMAL_ACTION",
+						"type": "date"
+					},
+					{
+						"name": "FAC_FORMAL_ACTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_DATE_LAST_FORMAL_ACTION",
+						"type": "date"
+					},
+					{
+						"name": "FAC_TOTAL_PENALTIES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_PENALTY_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_DATE_LAST_PENALTY",
+						"type": "date"
+					},
+					{
+						"name": "FAC_LAST_PENALTY_AMT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_QTRS_WITH_NC",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_PROGRAMS_WITH_SNC",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FAC_COMPLIANCE_STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_SNC_FLG",
+						"type": "char"
+					},
+					{
+						"name": "FAC_3YR_COMPLIANCE_HISTORY",
+						"type": "varchar"
+					},
+					{
+						"name": "AIR_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "NPDES_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "SDWIS_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "TRI_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "GHG_FLAG",
+						"type": "char"
+					},
+					{
+						"name": "AIR_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "CAA_PERMIT_TYPES",
+						"type": "varchar"
+					},
+					{
+						"name": "CAA_NAICS",
+						"type": "varchar"
+					},
+					{
+						"name": "CAA_SICS",
+						"type": "varchar"
+					},
+					{
+						"name": "CAA_EVALUATION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_DAYS_LAST_EVALUATION",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_INFORMAL_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_FORMAL_ACTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_DATE_LAST_FORMAL_ACTION",
+						"type": "date"
+					},
+					{
+						"name": "CAA_PENALTIES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_LAST_PENALTY_DATE",
+						"type": "date"
+					},
+					{
+						"name": "CAA_LAST_PENALTY_AMT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_QTRS_IN_NC",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAA_COMPLIANCE_STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "CAA_HPV_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "CAA_3YR_COMPL_QTRS_HISTORY",
+						"type": "varchar"
+					},
+					{
+						"name": "NPDES_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_PERMIT_TYPES",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_COMPLIANCE_TRACKING",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_NAICS",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_SICS",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_INSPECTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_DAYS_LAST_INSPECTION",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_INFORMAL_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_FORMAL_ACTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_DATE_LAST_FORMAL_ACTION",
+						"type": "date"
+					},
+					{
+						"name": "CWA_PENALTIES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_LAST_PENALTY_DATE",
+						"type": "date"
+					},
+					{
+						"name": "CWA_LAST_PENALTY_AMT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_QTRS_WITH_NC",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_COMPLIANCE_STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_SNC_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_13QTRS_COMPL_HISTORY",
+						"type": "varchar"
+					},
+					{
+						"name": "CWA_13QTRS_EFFLNT_EXCEEDANCES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CWA_3_YR_QNCR_CODES",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_PERMIT_TYPES",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_NAICS",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_INSPECTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_DAYS_LAST_EVALUATION",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_INFORMAL_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_FORMAL_ACTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_DATE_LAST_FORMAL_ACTION",
+						"type": "date"
+					},
+					{
+						"name": "RCRA_PENALTIES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_LAST_PENALTY_DATE",
+						"type": "date"
+					},
+					{
+						"name": "RCRA_LAST_PENALTY_AMT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_QTRS_WITH_NC",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "RCRA_COMPLIANCE_STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_SNC_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "RCRA_3YR_COMPL_QTRS_HISTORY",
+						"type": "varchar"
+					},
+					{
+						"name": "SDWA_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "SDWA_SYSTEM_TYPES",
+						"type": "varchar"
+					},
+					{
+						"name": "SDWA_INFORMAL_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "SDWA_FORMAL_ACTION_COUNT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "SDWA_COMPLIANCE_STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "SDWA_SNC_FLAG",
+						"type": "char"
+					},
+					{
+						"name": "TRI_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "TRI_RELEASES_TRANSFERS",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "TRI_ON_SITE_RELEASES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "TRI_OFF_SITE_TRANSFERS",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "TRI_REPORTER_IN_PAST",
+						"type": "char"
+					},
+					{
+						"name": "FEC_CASE_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "FEC_NUMBER_OF_CASES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FEC_LAST_CASE_DATE",
+						"type": "date"
+					},
+					{
+						"name": "FEC_TOTAL_PENALTIES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "GHG_IDS",
+						"type": "varchar"
+					},
+					{
+						"name": "GHG_CO2_RELEASES",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "DFR_URL",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_SIC_CODES",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_NAICS_CODES",
+						"type": "varchar"
+					},
+					{
+						"name": "FAC_DATE_LAST_INSPECTION_EPA",
+						"type": "date"
+					},
+					{
+						"name": "FAC_DATE_LAST_INSPECTION_STATE",
+						"type": "date"
+					},
+					{
+						"name": "FAC_DATE_LAST_FORMAL_ACT_EPA",
+						"type": "date"
+					},
+					{
+						"name": "FAC_DATE_LAST_FORMAL_ACT_ST",
+						"type": "date"
+					},
+					{
+						"name": "FAC_DATE_LAST_INFORMAL_ACT_EPA",
+						"type": "date"
+					},
+					{
+						"name": "FAC_DATE_LAST_INFORMAL_ACT_ST",
+						"type": "date"
+					},
+					{
+						"name": "FAC_FEDERAL_AGENCY",
+						"type": "varchar"
+					},
+					{
+						"name": "TRI_REPORTER",
+						"type": "char"
+					},
+					{
+						"name": "FAC_IMP_WATER_FLG",
+						"type": "char"
+					},
+					{
+						"name": "EJSCREEN_FLAG_US",
+						"type": "char"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Facility"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Facility')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CSWRstorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "ECHO_EXPORTER.csv",
+						"container": "facility-sources"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Freshwater')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CSWRstorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "freshwater-sources"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "PWSName",
+						"type": "String"
+					},
+					{
+						"name": "PWSId",
+						"type": "String"
+					},
+					{
+						"name": "CitiesServed",
+						"type": "String"
+					},
+					{
+						"name": "StateCode",
+						"type": "String"
+					},
+					{
+						"name": "ZipCodesServed",
+						"type": "String"
+					},
+					{
+						"name": "CountiesServed",
+						"type": "String"
+					},
+					{
+						"name": "EPARegion",
+						"type": "String"
+					},
+					{
+						"name": "IndianCountry",
+						"type": "String"
+					},
+					{
+						"name": "PWSTypeCode",
+						"type": "String"
+					},
+					{
+						"name": "PWSTypeDesc",
+						"type": "String"
+					},
+					{
+						"name": "PrimarySourceCode",
+						"type": "String"
+					},
+					{
+						"name": "PrimarySourceDesc",
+						"type": "String"
+					},
+					{
+						"name": "PopulationServedCount",
+						"type": "String"
+					},
+					{
+						"name": "PWSActivityCode",
+						"type": "String"
+					},
+					{
+						"name": "PWSActivityDesc",
+						"type": "String"
+					},
+					{
+						"name": "OwnerTypeCode",
+						"type": "String"
+					},
+					{
+						"name": "OwnerDesc",
+						"type": "String"
+					},
+					{
+						"name": "QtrsWithVio",
+						"type": "String"
+					},
+					{
+						"name": "QtrsWithSNC",
+						"type": "String"
+					},
+					{
+						"name": "SeriousViolator",
+						"type": "String"
+					},
+					{
+						"name": "HealthFlag",
+						"type": "String"
+					},
+					{
+						"name": "MrFlag",
+						"type": "String"
+					},
+					{
+						"name": "PnFlag",
+						"type": "String"
+					},
+					{
+						"name": "OtherFlag",
+						"type": "String"
+					},
+					{
+						"name": "NewVioFlg",
+						"type": "String"
+					},
+					{
+						"name": "RulesVio3yr",
+						"type": "String"
+					},
+					{
+						"name": "RulesVio",
+						"type": "String"
+					},
+					{
+						"name": "Viopaccr",
+						"type": "String"
+					},
+					{
+						"name": "Vioremain",
+						"type": "String"
+					},
+					{
+						"name": "Viofeanot",
+						"type": "String"
+					},
+					{
+						"name": "Viortcfea",
+						"type": "String"
+					},
+					{
+						"name": "Viortcnofea",
+						"type": "String"
+					},
+					{
+						"name": "Ifea",
+						"type": "String"
+					},
+					{
+						"name": "Feas",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastIea",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastIeaEPA",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastIeaSt",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastFea",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastFeaEPA",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastFeaSt",
+						"type": "String"
+					},
+					{
+						"name": "SDWAContaminantsInViol3yr",
+						"type": "String"
+					},
+					{
+						"name": "SDWAContaminantsInCurViol",
+						"type": "String"
+					},
+					{
+						"name": "PbAle",
+						"type": "String"
+					},
+					{
+						"name": "CuAle",
+						"type": "String"
+					},
+					{
+						"name": "Rc350Viol",
+						"type": "String"
+					},
+					{
+						"name": "DfrUrl",
+						"type": "String"
+					},
+					{
+						"name": "FIPSCodes",
+						"type": "String"
+					},
+					{
+						"name": "SNC",
+						"type": "String"
+					},
+					{
+						"name": "GwSwCode",
+						"type": "String"
+					},
+					{
+						"name": "SDWA3yrComplQtrsHistory",
+						"type": "String"
+					},
+					{
+						"name": "SDWAContaminants",
+						"type": "String"
+					},
+					{
+						"name": "PbViol",
+						"type": "String"
+					},
+					{
+						"name": "CuViol",
+						"type": "String"
+					},
+					{
+						"name": "LeadAndCopperViol",
+						"type": "String"
+					},
+					{
+						"name": "TRIbalFlag",
+						"type": "String"
+					},
+					{
+						"name": "FeaFlag",
+						"type": "String"
+					},
+					{
+						"name": "IeaFlag",
+						"type": "String"
+					},
+					{
+						"name": "SNCFlag",
+						"type": "String"
+					},
+					{
+						"name": "CurrVioFlag",
+						"type": "String"
+					},
+					{
+						"name": "VioFlag",
+						"type": "String"
+					},
+					{
+						"name": "Insp5yrFlag",
+						"type": "String"
+					},
+					{
+						"name": "Sansurvey5yr",
+						"type": "String"
+					},
+					{
+						"name": "SignificantDeficiencyCount",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastVisit",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastVisitEPA",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastVisitState",
+						"type": "String"
+					},
+					{
+						"name": "SDWDateLastVisitLocal",
+						"type": "String"
+					},
+					{
+						"name": "SiteVisits5yrAll",
+						"type": "String"
+					},
+					{
+						"name": "SiteVisits5yrInspections",
+						"type": "String"
+					},
+					{
+						"name": "SiteVisits5yrOther",
+						"type": "String"
+					},
+					{
+						"name": "RegistryID",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RestAPIfreshwaterQID')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "EPA fresh water source QID",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/EPA fresh water source QID')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Wastewater')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CSWRstorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "wastewater-sources"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Year",
+						"type": "String"
+					},
+					{
+						"name": "NPDES Permit Number",
+						"type": "String"
+					},
+					{
+						"name": "Facility Name",
+						"type": "String"
+					},
+					{
+						"name": "FRS ID",
+						"type": "String"
+					},
+					{
+						"name": "TRI Facility ID(s)",
+						"type": "String"
+					},
+					{
+						"name": "CWNS ID(s)",
+						"type": "String"
+					},
+					{
+						"name": "Facility Type Indicator",
+						"type": "String"
+					},
+					{
+						"name": "Permit Type",
+						"type": "String"
+					},
+					{
+						"name": "Permit Effective Date",
+						"type": "String"
+					},
+					{
+						"name": "Permit Expiration Date",
+						"type": "String"
+					},
+					{
+						"name": "Major/Non-Major Status",
+						"type": "String"
+					},
+					{
+						"name": "SIC Code",
+						"type": "String"
+					},
+					{
+						"name": "NAICS Code",
+						"type": "String"
+					},
+					{
+						"name": "Street Address",
+						"type": "String"
+					},
+					{
+						"name": "City",
+						"type": "String"
+					},
+					{
+						"name": "State",
+						"type": "String"
+					},
+					{
+						"name": "ZIP Code",
+						"type": "String"
+					},
+					{
+						"name": "County",
+						"type": "String"
+					},
+					{
+						"name": "EPA Region",
+						"type": "String"
+					},
+					{
+						"name": "Congressional District",
+						"type": "String"
+					},
+					{
+						"name": "Facility Latitude",
+						"type": "String"
+					},
+					{
+						"name": "Facility Longitude",
+						"type": "String"
+					},
+					{
+						"name": "HUC 12 Code",
+						"type": "String"
+					},
+					{
+						"name": "Watershed Name",
+						"type": "String"
+					},
+					{
+						"name": "Water Body Name",
+						"type": "String"
+					},
+					{
+						"name": "Reach Code",
+						"type": "String"
+					},
+					{
+						"name": "Listed for Impairment",
+						"type": "String"
+					},
+					{
+						"name": "Impairment Class",
+						"type": "String"
+					},
+					{
+						"name": "Number of CSO Outfalls",
+						"type": "String"
+					},
+					{
+						"name": "Total Facility Design Flow (MGD)",
+						"type": "String"
+					},
+					{
+						"name": "Actual Average Facility Flow (MGD)",
+						"type": "String"
+					},
+					{
+						"name": "Total Facility Load (kg/yr)",
+						"type": "String"
+					},
+					{
+						"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+						"type": "String"
+					},
+					{
+						"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+						"type": "String"
+					},
+					{
+						"name": "Max Allowable Load (kg/yr)",
+						"type": "String"
+					},
+					{
+						"name": "Total Facility Flow (MGal/yr)",
+						"type": "String"
+					},
+					{
+						"name": "Facility Info Only",
+						"type": "String"
+					},
+					{
+						"name": "Has Permit Limits",
+						"type": "String"
+					},
+					{
+						"name": "Has Loadings Data",
+						"type": "String"
+					},
+					{
+						"name": "Contains Potential Outliers?",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/echo_exporter_output')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CSWRstorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "echo_exporter.zip",
+						"folderPath": "facilities",
+						"container": "sources"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EPA fresh water source QID')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "https://ofmpub.epa.gov/echo/sdw_rest_services.get_systems?output=JSON&p_st=GA&qcolumns=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EPAechoexporter')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "https://echo.epa.gov/files/echodownloads/echo_exporter.zip",
+					"enableServerCertificateValidation": false,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

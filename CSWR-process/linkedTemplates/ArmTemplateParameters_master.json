@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "CSWR-process"
+		},
+		"CSWRdevdb_connectionString": {
+			"value": ""
+		},
+		"CSWRstorage_connectionString": {
+			"value": ""
+		},
+		"EPA fresh water source QID_properties_typeProperties_url": {
+			"value": "https://ofmpub.epa.gov/echo/sdw_rest_services.get_systems?output=JSON&p_st=GA&qcolumns=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17"
+		},
+		"EPAechoexporter_properties_typeProperties_url": {
+			"value": "https://echo.epa.gov/files/echodownloads/echo_exporter.zip"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
