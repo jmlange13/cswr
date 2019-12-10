@@ -33,7 +33,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "echo_exporter",
+						"referenceName": "Facility",
 						"type": "DatasetReference"
 					}
 				],
