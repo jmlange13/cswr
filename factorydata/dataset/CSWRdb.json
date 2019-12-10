@@ -9,347 +9,179 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "PWSNAME",
+				"name": "Year",
 				"type": "varchar"
 			},
 			{
-				"name": "PWSID",
+				"name": "NPDES Permit Number",
 				"type": "varchar"
 			},
 			{
-				"name": "CITIESSERVED",
+				"name": "Facility Name",
 				"type": "varchar"
 			},
 			{
-				"name": "STATECODE",
+				"name": "FRS ID",
 				"type": "varchar"
 			},
 			{
-				"name": "ZIPCODESSERVED",
+				"name": "TRI Facility ID(s)",
 				"type": "varchar"
 			},
 			{
-				"name": "COUNTIESSERVED",
+				"name": "CWNS ID(s)",
 				"type": "varchar"
 			},
 			{
-				"name": "EPAREGION",
+				"name": "Facility Type Indicator",
 				"type": "varchar"
 			},
 			{
-				"name": "INDIANCOUNTRY",
-				"type": "char"
-			},
-			{
-				"name": "PWSTYPECODE",
+				"name": "Permit Type",
 				"type": "varchar"
 			},
 			{
-				"name": "PWSTYPEDESC",
-				"type": "varchar"
-			},
-			{
-				"name": "PRIMARYSOURCECODE",
-				"type": "varchar"
-			},
-			{
-				"name": "PRIMARYSOURCEDESC",
-				"type": "varchar"
-			},
-			{
-				"name": "POPULATIONSERVEDCOUNT",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "PWSACTIVITYCODE",
-				"type": "char"
-			},
-			{
-				"name": "PWSACTIVITYDESC",
-				"type": "varchar"
-			},
-			{
-				"name": "OWNERTYPECODE",
-				"type": "char"
-			},
-			{
-				"name": "OWNERDESC",
-				"type": "varchar"
-			},
-			{
-				"name": "QTRSWITHVIO",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "QTRSWITHSNC",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "SERIOUSVIOLATOR",
-				"type": "varchar"
-			},
-			{
-				"name": "HEALTHFLAG",
-				"type": "varchar"
-			},
-			{
-				"name": "MRFLAG",
-				"type": "varchar"
-			},
-			{
-				"name": "PNFLAG",
-				"type": "varchar"
-			},
-			{
-				"name": "OTHERFLAG",
-				"type": "varchar"
-			},
-			{
-				"name": "NEWVIOFLG",
-				"type": "varchar"
-			},
-			{
-				"name": "RULESVIO3YR",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "RULESVIO",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "VIOPACCR",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "VIOREMAIN",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "VIOFEANOT",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "VIORTCFEA",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "VIORTCNOFEA",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "IFEA",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "FEAS",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "SDWDATELASTIEA",
+				"name": "Permit Effective Date",
 				"type": "date"
 			},
 			{
-				"name": "SDWDATELASTIEAEPA",
+				"name": "Permit Expiration Date",
 				"type": "date"
 			},
 			{
-				"name": "SDWDATELASTIEAST",
-				"type": "date"
-			},
-			{
-				"name": "SDWDATELASTFEA",
-				"type": "date"
-			},
-			{
-				"name": "SDWDATELASTFEAEPA",
-				"type": "date"
-			},
-			{
-				"name": "SDWDATELASTFEAST",
-				"type": "date"
-			},
-			{
-				"name": "SDWACONTAMINANTSINVIOL3YR",
+				"name": "Major/Non-Major Status",
 				"type": "varchar"
 			},
 			{
-				"name": "SDWACONTAMINANTSINCURVIOL",
+				"name": "SIC Code",
 				"type": "varchar"
 			},
 			{
-				"name": "PBALE",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "CUALE",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "RC350VIOL",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "DFRURL",
+				"name": "NAICS Code",
 				"type": "varchar"
 			},
 			{
-				"name": "FIPSCODES",
+				"name": "Street Address",
 				"type": "varchar"
 			},
 			{
-				"name": "SNC",
+				"name": "City",
 				"type": "varchar"
 			},
 			{
-				"name": "GWSWCODE",
+				"name": "State",
 				"type": "varchar"
 			},
 			{
-				"name": "SDWA3YRCOMPLQTRSHISTORY",
+				"name": "Zip Code",
 				"type": "varchar"
 			},
 			{
-				"name": "SDWACONTAMINANTS",
+				"name": "County",
 				"type": "varchar"
 			},
 			{
-				"name": "PBVIOL",
+				"name": "EPA Region",
+				"type": "varchar"
+			},
+			{
+				"name": "Congressional District",
+				"type": "varchar"
+			},
+			{
+				"name": "Facility Latitude",
+				"type": "varchar"
+			},
+			{
+				"name": "Facility Longitute",
+				"type": "varchar"
+			},
+			{
+				"name": "HUC 12 Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Watershed Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Water Body Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Reach Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Listed for Impairment",
+				"type": "varchar"
+			},
+			{
+				"name": "Impairment Class",
+				"type": "varchar"
+			},
+			{
+				"name": "Number of CSO Outfalls",
 				"type": "decimal",
 				"precision": 22,
 				"scale": 0
 			},
 			{
-				"name": "CUVIOL",
+				"name": "Total Facility Design Flow (MGD)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 3
 			},
 			{
-				"name": "LEADANDCOPPERVIOL",
+				"name": "Actual Average Facility Flow (MGD)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 3
 			},
 			{
-				"name": "TRIBALFLAG",
+				"name": "Total Facility Load (kg/yr)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 8
 			},
 			{
-				"name": "FEAFLAG",
+				"name": "Facility Load Over Limit (Option 1) (kg/yr)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 8
 			},
 			{
-				"name": "IEAFLAG",
+				"name": "Facility Load Over Limit (Option 2) (kg/yr)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 8
 			},
 			{
-				"name": "SNCFLAG",
+				"name": "Max Allowable Load (kg/yr)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 8
 			},
 			{
-				"name": "CURRVIOFLAG",
+				"name": "Total Facility Flow (MGal/yr)",
 				"type": "decimal",
 				"precision": 22,
-				"scale": 0
+				"scale": 8
 			},
 			{
-				"name": "VIOFLAG",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
+				"name": "Facility Info Only",
+				"type": "varchar"
 			},
 			{
-				"name": "INSP5YRFLAG",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
+				"name": "Has Permit Limits",
+				"type": "varchar"
 			},
 			{
-				"name": "SANSURVEY5YR",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
+				"name": "Has Loadings Data",
+				"type": "varchar"
 			},
 			{
-				"name": "SIGNIFICANTDEFICIENCYCOUNT",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "SDWDATELASTVISIT",
-				"type": "date"
-			},
-			{
-				"name": "SDWDATELASTVISITEPA",
-				"type": "date"
-			},
-			{
-				"name": "SDWDATELASTVISITSTATE",
-				"type": "date"
-			},
-			{
-				"name": "SDWDATELASTVISITLOCAL",
-				"type": "date"
-			},
-			{
-				"name": "SITEVISITS5YRALL",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "SITEVISITS5YRINSPECTIONS",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "SITEVISITS5YROTHER",
-				"type": "decimal",
-				"precision": 22,
-				"scale": 0
-			},
-			{
-				"name": "REGISTRYID",
+				"name": "Contains Potential Outliers?",
 				"type": "varchar"
 			}
 		],
