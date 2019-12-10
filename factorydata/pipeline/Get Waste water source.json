@@ -20,7 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFileName": "*.csv",
+							"wildcardFileName": "AL*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -241,7 +241,7 @@
 								},
 								"sink": {
 									"name": "Facility Latitude",
-									"type": "Decimal"
+									"type": "String"
 								}
 							},
 							{
@@ -251,7 +251,7 @@
 								},
 								"sink": {
 									"name": "Facility Longitute",
-									"type": "Decimal"
+									"type": "String"
 								}
 							},
 							{
