@@ -1,6 +1,452 @@
 {
 	"name": "Get Waste water source",
 	"properties": {
+		"activities": [
+			{
+				"name": "CopyCSVtoDB",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Year",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Year",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NPDES Permit Number",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NPDES Permit Number",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Facility Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Facility Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FRS ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FRS ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRI Facility ID(s)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TRI Facility ID(s)",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CWNS ID(s)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CWNS ID(s)",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Facility Type Indicator",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Facility Type Indicator",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Permit Type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Permit Type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Permit Effective Date",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Permit Effective Date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Permit Expiration Date",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Permit Expiration Date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Major/Non-Major Status",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Major/Non-Major Status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SIC Code",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SIC Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NAICS Code",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NAICS Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Street Address",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Street Address",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "City",
+									"type": "String"
+								},
+								"sink": {
+									"name": "City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String"
+								},
+								"sink": {
+									"name": "State",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ZIP Code",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Zip Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "County",
+									"type": "String"
+								},
+								"sink": {
+									"name": "County",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EPA Region",
+									"type": "String"
+								},
+								"sink": {
+									"name": "EPA Region",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Congressional District",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Congressional District",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Facility Latitude",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Facility Latitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"sink": {
+									"name": "Facility Longitute",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "HUC 12 Code",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HUC 12 Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Watershed Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Watershed Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Water Body Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Water Body Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Reach Code",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Reach Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Listed for Impairment",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Listed for Impairment",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Impairment Class",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Impairment Class",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Number of CSO Outfalls",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Number of CSO Outfalls",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Total Facility Design Flow (MGD)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Total Facility Design Flow (MGD)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Actual Average Facility Flow (MGD)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Actual Average Facility Flow (MGD)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Total Facility Load (kg/yr)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Total Facility Load (kg/yr)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Max Allowable Load (kg/yr)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Max Allowable Load (kg/yr)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Total Facility Flow (MGal/yr)",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Total Facility Flow (MGal/yr)",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "Facility Info Only",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Facility Info Only",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Has Permit Limits",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Has Permit Limits",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Has Loadings Data",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Has Loadings Data",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Contains Potential Outliers?",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Contains Potential Outliers?",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Wastewater",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CSWRdb",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
 		"annotations": []
 	}
 }
