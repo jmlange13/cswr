@@ -29,13 +29,21 @@
 						"type": "AzureSqlSink"
 					},
 					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "CSWRstorage",
+							"type": "LinkedServiceReference"
+						},
+						"path": "df-logging"
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 1
+									"name": "REGISTRY_ID",
+									"type": "String"
 								},
 								"sink": {
 									"name": "REGISTRY_ID",
@@ -44,8 +52,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 2
+									"name": "FAC_NAME",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_NAME",
@@ -54,8 +62,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 3
+									"name": "FAC_STREET",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_STREET",
@@ -64,8 +72,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 4
+									"name": "FAC_CITY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_CITY",
@@ -74,8 +82,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 5
+									"name": "FAC_STATE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_STATE",
@@ -84,8 +92,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 6
+									"name": "FAC_ZIP",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_ZIP",
@@ -94,18 +102,18 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 7
+									"name": "FAC_COUNTY",
+									"type": "String"
 								},
 								"sink": {
-									"name": "FAC_COUNTRY",
+									"name": "FAC_COUNTY",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 8
+									"name": "FAC_FIPS_CODE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_FIPS_CODE",
@@ -114,8 +122,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 9
+									"name": "FAC_EPA_REGION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_EPA_REGION",
@@ -124,8 +132,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 10
+									"name": "FAC_INDIAN_CNTRY_FLG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_INDIAN_CNTRY_FLG",
@@ -134,8 +142,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 11
+									"name": "FAC_FEDERAL_FLG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_FEDERAL_FLG",
@@ -144,8 +152,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 12
+									"name": "FAC_US_MEX_BORDER_FLG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_US_MEX_BORDER_FLG",
@@ -154,8 +162,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 13
+									"name": "FAC_CHESAPEAKE_BAY_FLG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_CHESAPEAKE_BAY_FLG",
@@ -164,8 +172,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 14
+									"name": "FAC_NAA_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_NAA_FLAG",
@@ -174,8 +182,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 15
+									"name": "FAC_LAT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_LAT",
@@ -184,8 +192,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 16
+									"name": "FAC_LONG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_LONG",
@@ -194,8 +202,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 17
+									"name": "FAC_MAP_ICON",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_MAP_ICON",
@@ -204,8 +212,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 18
+									"name": "FAC_COLLECTION_METHOD",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_COLLECTION_METHOD",
@@ -214,8 +222,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 19
+									"name": "FAC_REFERENCE_POINT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_REFERENCE_POINT",
@@ -224,8 +232,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 20
+									"name": "FAC_ACCURACY_METERS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_ACCURACY_METERS",
@@ -234,8 +242,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 21
+									"name": "FAC_DERIVED_TRIBES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_TRIBES",
@@ -244,8 +252,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 22
+									"name": "FAC_DERIVED_HUC",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_HUC",
@@ -254,8 +262,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 23
+									"name": "FAC_DERIVED_WBD",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_WBD",
@@ -264,8 +272,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 24
+									"name": "FAC_DERIVED_STCTY_FIPS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_STCTY_FIPS",
@@ -274,8 +282,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 25
+									"name": "FAC_DERIVED_ZIP",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_ZIP",
@@ -284,8 +292,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 26
+									"name": "FAC_DERIVED_CD113",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_CD113",
@@ -294,8 +302,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 27
+									"name": "FAC_DERIVED_CB2010",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DERIVED_CB2010",
@@ -304,8 +312,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 28
+									"name": "FAC_PERCENT_MINORITY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_PERCENT_MINORITY",
@@ -314,8 +322,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 29
+									"name": "FAC_POP_DEN",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_POP_DEN",
@@ -324,8 +332,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 30
+									"name": "FAC_MAJOR_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_MAJOR_FLAG",
@@ -334,8 +342,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 31
+									"name": "FAC_ACTIVE_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_ACTIVE_FLAG",
@@ -344,8 +352,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 32
+									"name": "FAC_MYRTK_UNIVERSE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_MYRTK_UNIVERSE",
@@ -354,8 +362,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 33
+									"name": "FAC_INSPECTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_INSPECTION_COUNT",
@@ -364,8 +372,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 34
+									"name": "FAC_DATE_LAST_INSPECTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_INSPECTION",
@@ -374,8 +382,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 35
+									"name": "FAC_DAYS_LAST_INSPECTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DAYS_LAST_INSPECTION",
@@ -384,8 +392,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 36
+									"name": "FAC_INFORMAL_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_INFORMAL_COUNT",
@@ -394,8 +402,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 37
+									"name": "FAC_DATE_LAST_INFORMAL_ACTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_INFORMAL_ACTION",
@@ -404,8 +412,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 38
+									"name": "FAC_FORMAL_ACTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_FORMAL_ACTION_COUNT",
@@ -414,8 +422,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 39
+									"name": "FAC_DATE_LAST_FORMAL_ACTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_FORMAL_ACTION",
@@ -424,8 +432,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 40
+									"name": "FAC_TOTAL_PENALTIES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_TOTAL_PENALTIES",
@@ -434,8 +442,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 41
+									"name": "FAC_PENALTY_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_PENALTY_COUNT",
@@ -444,8 +452,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 42
+									"name": "FAC_DATE_LAST_PENALTY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_PENALTY",
@@ -454,8 +462,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 43
+									"name": "FAC_LAST_PENALTY_AMT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_LAST_PENALTY_AMT",
@@ -464,8 +472,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 44
+									"name": "FAC_QTRS_WITH_NC",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_QTRS_WITH_NC",
@@ -474,8 +482,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 45
+									"name": "FAC_PROGRAMS_WITH_SNC",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_PROGRAMS_WITH_SNC",
@@ -484,8 +492,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 46
+									"name": "FAC_COMPLIANCE_STATUS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_COMPLIANCE_STATUS",
@@ -494,8 +502,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 47
+									"name": "FAC_SNC_FLG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_SNC_FLG",
@@ -504,8 +512,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 48
+									"name": "FAC_3YR_COMPLIANCE_HISTORY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_3YR_COMPLIANCE_HISTORY",
@@ -514,8 +522,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 49
+									"name": "AIR_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "AIR_FLAG",
@@ -524,8 +532,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 50
+									"name": "NPDES_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "NPDES_FLAG",
@@ -534,8 +542,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 51
+									"name": "SDWIS_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWIS_FLAG",
@@ -544,8 +552,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 52
+									"name": "RCRA_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_FLAG",
@@ -554,8 +562,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 53
+									"name": "TRI_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_FLAG",
@@ -564,8 +572,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 54
+									"name": "GHG_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "GHG_FLAG",
@@ -574,8 +582,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 55
+									"name": "AIR_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "AIR_IDS",
@@ -584,8 +592,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 56
+									"name": "CAA_PERMIT_TYPES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_PERMIT_TYPES",
@@ -594,8 +602,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 57
+									"name": "CAA_NAICS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_NAICS",
@@ -604,8 +612,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 58
+									"name": "CAA_SICS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_SICS",
@@ -614,8 +622,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 59
+									"name": "CAA_EVALUATION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_EVALUATION_COUNT",
@@ -624,8 +632,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 60
+									"name": "CAA_DAYS_LAST_EVALUATION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_DAYS_LAST_EVALUATION",
@@ -634,8 +642,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 61
+									"name": "CAA_INFORMAL_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_INFORMAL_COUNT",
@@ -644,8 +652,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 62
+									"name": "CAA_FORMAL_ACTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_FORMAL_ACTION_COUNT",
@@ -654,8 +662,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 63
+									"name": "CAA_DATE_LAST_FORMAL_ACTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_DATE_LAST_FORMAL_ACTION",
@@ -664,8 +672,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 64
+									"name": "CAA_PENALTIES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_PENALTIES",
@@ -674,8 +682,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 65
+									"name": "CAA_LAST_PENALTY_DATE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_LAST_PENALTY_DATE",
@@ -684,8 +692,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 66
+									"name": "CAA_LAST_PENALTY_AMT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_LAST_PENALTY_AMT",
@@ -694,18 +702,18 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 67
+									"name": "CAA_QTRS_WITH_NC",
+									"type": "String"
 								},
 								"sink": {
-									"name": "CAA_QTRS_IN_NC",
+									"name": "CAA_QTRS_WITH_NC",
 									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 68
+									"name": "CAA_COMPLIANCE_STATUS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_COMPLIANCE_STATUS",
@@ -714,8 +722,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 69
+									"name": "CAA_HPV_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_HPV_FLAG",
@@ -724,8 +732,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 70
+									"name": "CAA_3YR_COMPL_QTRS_HISTORY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CAA_3YR_COMPL_QTRS_HISTORY",
@@ -734,8 +742,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 71
+									"name": "NPDES_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "NPDES_IDS",
@@ -744,8 +752,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 72
+									"name": "CWA_PERMIT_TYPES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_PERMIT_TYPES",
@@ -754,8 +762,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 73
+									"name": "CWA_COMPLIANCE_TRACKING",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_COMPLIANCE_TRACKING",
@@ -764,8 +772,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 74
+									"name": "CWA_NAICS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_NAICS",
@@ -774,8 +782,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 75
+									"name": "CWA_SICS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_SICS",
@@ -784,8 +792,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 76
+									"name": "CWA_INSPECTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_INSPECTION_COUNT",
@@ -794,8 +802,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 77
+									"name": "CWA_DAYS_LAST_INSPECTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_DAYS_LAST_INSPECTION",
@@ -804,8 +812,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 78
+									"name": "CWA_INFORMAL_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_INFORMAL_COUNT",
@@ -814,8 +822,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 79
+									"name": "CWA_FORMAL_ACTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_FORMAL_ACTION_COUNT",
@@ -824,8 +832,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 80
+									"name": "CWA_DATE_LAST_FORMAL_ACTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_DATE_LAST_FORMAL_ACTION",
@@ -834,8 +842,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 81
+									"name": "CWA_PENALTIES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_PENALTIES",
@@ -844,8 +852,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 82
+									"name": "CWA_LAST_PENALTY_DATE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_LAST_PENALTY_DATE",
@@ -854,8 +862,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 83
+									"name": "CWA_LAST_PENALTY_AMT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_LAST_PENALTY_AMT",
@@ -864,8 +872,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 84
+									"name": "CWA_QTRS_WITH_NC",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_QTRS_WITH_NC",
@@ -874,8 +882,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 85
+									"name": "CWA_COMPLIANCE_STATUS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_COMPLIANCE_STATUS",
@@ -884,8 +892,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 86
+									"name": "CWA_SNC_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_SNC_FLAG",
@@ -894,8 +902,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 87
+									"name": "CWA_13QTRS_COMPL_HISTORY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_13QTRS_COMPL_HISTORY",
@@ -904,8 +912,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 88
+									"name": "CWA_13QTRS_EFFLNT_EXCEEDANCES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_13QTRS_EFFLNT_EXCEEDANCES",
@@ -914,8 +922,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 89
+									"name": "CWA_3_YR_QNCR_CODES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "CWA_3_YR_QNCR_CODES",
@@ -924,8 +932,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 90
+									"name": "RCRA_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_IDS",
@@ -934,8 +942,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 91
+									"name": "RCRA_PERMIT_TYPES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_PERMIT_TYPES",
@@ -944,8 +952,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 92
+									"name": "RCRA_NAICS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_NAICS",
@@ -954,8 +962,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 93
+									"name": "RCRA_INSPECTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_INSPECTION_COUNT",
@@ -964,8 +972,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 94
+									"name": "RCRA_DAYS_LAST_EVALUATION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_DAYS_LAST_EVALUATION",
@@ -974,8 +982,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 95
+									"name": "RCRA_INFORMAL_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_INFORMAL_COUNT",
@@ -984,8 +992,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 96
+									"name": "RCRA_FORMAL_ACTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_FORMAL_ACTION_COUNT",
@@ -994,8 +1002,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 97
+									"name": "RCRA_DATE_LAST_FORMAL_ACTION",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_DATE_LAST_FORMAL_ACTION",
@@ -1004,8 +1012,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 98
+									"name": "RCRA_PENALTIES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_PENALTIES",
@@ -1014,8 +1022,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 99
+									"name": "RCRA_LAST_PENALTY_DATE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_LAST_PENALTY_DATE",
@@ -1024,8 +1032,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 100
+									"name": "RCRA_LAST_PENALTY_AMT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_LAST_PENALTY_AMT",
@@ -1034,8 +1042,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 101
+									"name": "RCRA_QTRS_WITH_NC",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_QTRS_WITH_NC",
@@ -1044,8 +1052,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 102
+									"name": "RCRA_COMPLIANCE_STATUS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_COMPLIANCE_STATUS",
@@ -1054,8 +1062,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 103
+									"name": "RCRA_SNC_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_SNC_FLAG",
@@ -1064,8 +1072,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 104
+									"name": "RCRA_3YR_COMPL_QTRS_HISTORY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "RCRA_3YR_COMPL_QTRS_HISTORY",
@@ -1074,8 +1082,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 105
+									"name": "SDWA_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWA_IDS",
@@ -1084,8 +1092,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 106
+									"name": "SDWA_SYSTEM_TYPES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWA_SYSTEM_TYPES",
@@ -1094,8 +1102,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 107
+									"name": "SDWA_INFORMAL_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWA_INFORMAL_COUNT",
@@ -1104,8 +1112,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 108
+									"name": "SDWA_FORMAL_ACTION_COUNT",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWA_FORMAL_ACTION_COUNT",
@@ -1114,8 +1122,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 109
+									"name": "SDWA_COMPLIANCE_STATUS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWA_COMPLIANCE_STATUS",
@@ -1124,8 +1132,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 110
+									"name": "SDWA_SNC_FLAG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "SDWA_SNC_FLAG",
@@ -1134,8 +1142,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 111
+									"name": "TRI_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_IDS",
@@ -1144,8 +1152,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 112
+									"name": "TRI_RELEASES_TRANSFERS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_RELEASES_TRANSFERS",
@@ -1154,8 +1162,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 113
+									"name": "TRI_ON_SITE_RELEASES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_ON_SITE_RELEASES",
@@ -1164,8 +1172,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 114
+									"name": "TRI_OFF_SITE_TRANSFERS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_OFF_SITE_TRANSFERS",
@@ -1174,8 +1182,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 115
+									"name": "TRI_REPORTER_IN_PAST",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_REPORTER_IN_PAST",
@@ -1184,8 +1192,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 116
+									"name": "FEC_CASE_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FEC_CASE_IDS",
@@ -1194,8 +1202,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 117
+									"name": "FEC_NUMBER_OF_CASES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FEC_NUMBER_OF_CASES",
@@ -1204,8 +1212,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 118
+									"name": "FEC_LAST_CASE_DATE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FEC_LAST_CASE_DATE",
@@ -1214,8 +1222,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 119
+									"name": "FEC_TOTAL_PENALTIES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FEC_TOTAL_PENALTIES",
@@ -1224,8 +1232,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 120
+									"name": "GHG_IDS",
+									"type": "String"
 								},
 								"sink": {
 									"name": "GHG_IDS",
@@ -1234,8 +1242,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 121
+									"name": "GHG_CO2_RELEASES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "GHG_CO2_RELEASES",
@@ -1244,8 +1252,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 122
+									"name": "DFR_URL",
+									"type": "String"
 								},
 								"sink": {
 									"name": "DFR_URL",
@@ -1254,8 +1262,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 123
+									"name": "FAC_SIC_CODES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_SIC_CODES",
@@ -1264,8 +1272,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 124
+									"name": "FAC_NAICS_CODES",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_NAICS_CODES",
@@ -1274,8 +1282,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 125
+									"name": "FAC_DATE_LAST_INSPECTION_EPA",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_INSPECTION_EPA",
@@ -1284,8 +1292,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 126
+									"name": "FAC_DATE_LAST_INSPECTION_STATE",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_INSPECTION_STATE",
@@ -1294,8 +1302,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 127
+									"name": "FAC_DATE_LAST_FORMAL_ACT_EPA",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_FORMAL_ACT_EPA",
@@ -1304,8 +1312,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 128
+									"name": "FAC_DATE_LAST_FORMAL_ACT_ST",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_FORMAL_ACT_ST",
@@ -1314,8 +1322,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 129
+									"name": "FAC_DATE_LAST_INFORMAL_ACT_EPA",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_INFORMAL_ACT_EPA",
@@ -1324,8 +1332,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 130
+									"name": "FAC_DATE_LAST_INFORMAL_ACT_ST",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_DATE_LAST_INFORMAL_ACT_ST",
@@ -1334,8 +1342,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 131
+									"name": "FAC_FEDERAL_AGENCY",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_FEDERAL_AGENCY",
@@ -1344,8 +1352,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 132
+									"name": "TRI_REPORTER",
+									"type": "String"
 								},
 								"sink": {
 									"name": "TRI_REPORTER",
@@ -1354,8 +1362,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 133
+									"name": "FAC_IMP_WATER_FLG",
+									"type": "String"
 								},
 								"sink": {
 									"name": "FAC_IMP_WATER_FLG",
@@ -1364,8 +1372,8 @@
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 134
+									"name": "EJSCREEN_FLAG_US",
+									"type": "String"
 								},
 								"sink": {
 									"name": "EJSCREEN_FLAG_US",
