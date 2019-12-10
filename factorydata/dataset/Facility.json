@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "echo_exporter.csv",
+				"fileName": "ECHO_EXPORTER.csv",
 				"container": "facility-sources"
 			},
 			"columnDelimiter": ",",
