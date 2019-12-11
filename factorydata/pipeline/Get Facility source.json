@@ -5,7 +5,14 @@
 			{
 				"name": "Get Facility source",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Unzip file",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -20,7 +27,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFileName": "*.zip",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -1387,7 +1394,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "FacilityCompressed",
+						"referenceName": "FacilityDecompressed",
 						"type": "DatasetReference"
 					}
 				],
