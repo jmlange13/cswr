@@ -1,5 +1,5 @@
 {
-	"name": "Facility",
+	"name": "FacilityCompressed",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CSWRstorage",
@@ -10,11 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "echo_exporter.zip",
 				"container": "facility-sources"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": true,
+			"firstRowAsHeader": false,
 			"quoteChar": "\""
 		},
 		"schema": [
