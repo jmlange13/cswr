@@ -1,0 +1,361 @@
+{
+	"name": "CSWRdb_FreshWaterSource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CSWRdevdb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "PWSNAME",
+				"type": "varchar"
+			},
+			{
+				"name": "PWSID",
+				"type": "varchar"
+			},
+			{
+				"name": "CITIESSERVED",
+				"type": "varchar"
+			},
+			{
+				"name": "STATECODE",
+				"type": "varchar"
+			},
+			{
+				"name": "ZIPCODESSERVED",
+				"type": "varchar"
+			},
+			{
+				"name": "COUNTIESSERVED",
+				"type": "varchar"
+			},
+			{
+				"name": "EPAREGION",
+				"type": "varchar"
+			},
+			{
+				"name": "INDIANCOUNTRY",
+				"type": "char"
+			},
+			{
+				"name": "PWSTYPECODE",
+				"type": "varchar"
+			},
+			{
+				"name": "PWSTYPEDESC",
+				"type": "varchar"
+			},
+			{
+				"name": "PRIMARYSOURCECODE",
+				"type": "varchar"
+			},
+			{
+				"name": "PRIMARYSOURCEDESC",
+				"type": "varchar"
+			},
+			{
+				"name": "POPULATIONSERVEDCOUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "PWSACTIVITYCODE",
+				"type": "char"
+			},
+			{
+				"name": "PWSACTIVITYDESC",
+				"type": "varchar"
+			},
+			{
+				"name": "OWNERTYPECODE",
+				"type": "char"
+			},
+			{
+				"name": "OWNERDESC",
+				"type": "varchar"
+			},
+			{
+				"name": "QTRSWITHVIO",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "QTRSWITHSNC",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SERIOUSVIOLATOR",
+				"type": "varchar"
+			},
+			{
+				"name": "HEALTHFLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "MRFLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "PNFLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "OTHERFLAG",
+				"type": "varchar"
+			},
+			{
+				"name": "NEWVIOFLG",
+				"type": "varchar"
+			},
+			{
+				"name": "RULESVIO3YR",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RULESVIO",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "VIOPACCR",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "VIOREMAIN",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "VIOFEANOT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "VIORTCFEA",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "VIORTCNOFEA",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "IFEA",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FEAS",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SDWDATELASTIEA",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTIEAEPA",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTIEAST",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTFEA",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTFEAEPA",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTFEAST",
+				"type": "date"
+			},
+			{
+				"name": "SDWACONTAMINANTSINVIOL3YR",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWACONTAMINANTSINCURVIOL",
+				"type": "varchar"
+			},
+			{
+				"name": "PBALE",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CUALE",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "RC350VIOL",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "DFRURL",
+				"type": "varchar"
+			},
+			{
+				"name": "FIPSCODES",
+				"type": "varchar"
+			},
+			{
+				"name": "SNC",
+				"type": "varchar"
+			},
+			{
+				"name": "GWSWCODE",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWA3YRCOMPLQTRSHISTORY",
+				"type": "varchar"
+			},
+			{
+				"name": "SDWACONTAMINANTS",
+				"type": "varchar"
+			},
+			{
+				"name": "PBVIOL",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CUVIOL",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "LEADANDCOPPERVIOL",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "TRIBALFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "FEAFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "IEAFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SNCFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "CURRVIOFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "VIOFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "INSP5YRFLAG",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SANSURVEY5YR",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SIGNIFICANTDEFICIENCYCOUNT",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SDWDATELASTVISIT",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTVISITEPA",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTVISITSTATE",
+				"type": "date"
+			},
+			{
+				"name": "SDWDATELASTVISITLOCAL",
+				"type": "date"
+			},
+			{
+				"name": "SITEVISITS5YRALL",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SITEVISITS5YRINSPECTIONS",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "SITEVISITS5YROTHER",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "REGISTRYID",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FreshWaterSource"
+		}
+	}
+}

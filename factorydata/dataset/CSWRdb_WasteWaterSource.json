@@ -1,0 +1,193 @@
+{
+	"name": "CSWRdb_WasteWaterSource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CSWRdevdb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Year",
+				"type": "varchar"
+			},
+			{
+				"name": "NPDES Permit Number",
+				"type": "varchar"
+			},
+			{
+				"name": "Facility Name",
+				"type": "varchar"
+			},
+			{
+				"name": "FRS ID",
+				"type": "varchar"
+			},
+			{
+				"name": "TRI Facility ID(s)",
+				"type": "varchar"
+			},
+			{
+				"name": "CWNS ID(s)",
+				"type": "varchar"
+			},
+			{
+				"name": "Facility Type Indicator",
+				"type": "varchar"
+			},
+			{
+				"name": "Permit Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Permit Effective Date",
+				"type": "date"
+			},
+			{
+				"name": "Permit Expiration Date",
+				"type": "date"
+			},
+			{
+				"name": "Major/Non-Major Status",
+				"type": "varchar"
+			},
+			{
+				"name": "SIC Code",
+				"type": "varchar"
+			},
+			{
+				"name": "NAICS Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Street Address",
+				"type": "varchar"
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "State",
+				"type": "varchar"
+			},
+			{
+				"name": "Zip Code",
+				"type": "varchar"
+			},
+			{
+				"name": "County",
+				"type": "varchar"
+			},
+			{
+				"name": "EPA Region",
+				"type": "varchar"
+			},
+			{
+				"name": "Congressional District",
+				"type": "varchar"
+			},
+			{
+				"name": "Facility Latitude",
+				"type": "varchar"
+			},
+			{
+				"name": "Facility Longitute",
+				"type": "varchar"
+			},
+			{
+				"name": "HUC 12 Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Watershed Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Water Body Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Reach Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Listed for Impairment",
+				"type": "varchar"
+			},
+			{
+				"name": "Impairment Class",
+				"type": "varchar"
+			},
+			{
+				"name": "Number of CSO Outfalls",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 0
+			},
+			{
+				"name": "Total Facility Design Flow (MGD)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 3
+			},
+			{
+				"name": "Actual Average Facility Flow (MGD)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 3
+			},
+			{
+				"name": "Total Facility Load (kg/yr)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 8
+			},
+			{
+				"name": "Facility Load Over Limit (Option 1) (kg/yr)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 8
+			},
+			{
+				"name": "Facility Load Over Limit (Option 2) (kg/yr)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 8
+			},
+			{
+				"name": "Max Allowable Load (kg/yr)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 8
+			},
+			{
+				"name": "Total Facility Flow (MGal/yr)",
+				"type": "decimal",
+				"precision": 22,
+				"scale": 8
+			},
+			{
+				"name": "Facility Info Only",
+				"type": "varchar"
+			},
+			{
+				"name": "Has Permit Limits",
+				"type": "varchar"
+			},
+			{
+				"name": "Has Loadings Data",
+				"type": "varchar"
+			},
+			{
+				"name": "Contains Potential Outliers?",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "WasteWaterSource"
+		}
+	}
+}
