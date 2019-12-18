@@ -635,7 +635,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Facility"
+			"table": "FacilitySource"
 		}
 	}
 }
