@@ -1,5 +1,5 @@
 {
-	"name": "CSWRdb",
+	"name": "CSWRdb_FacilitySource",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CSWRdevdb",
