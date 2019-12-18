@@ -454,7 +454,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CSWRdb_FacilitySource",
+						"referenceName": "CSWRdb_WasteWaterSource",
 						"type": "DatasetReference"
 					}
 				]
