@@ -354,7 +354,7 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
+			"schema": "src",
 			"table": "FreshWaterSource"
 		}
 	}
