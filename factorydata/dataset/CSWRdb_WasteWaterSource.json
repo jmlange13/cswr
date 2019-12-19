@@ -186,7 +186,7 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
+			"schema": "src",
 			"table": "WasteWaterSource"
 		}
 	}
